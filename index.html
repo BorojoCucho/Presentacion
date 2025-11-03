@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometricode - Laboratorio de Creación Matemática</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <div class="logo-icon">
+                <i class="fas fa-shapes"></i>
+            </div>
+            <div>
+                <h1>Geometricode</h1>
+                <p>Laboratorio de Creación Matemática</p>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="visualizacion.html">Visualización</a></li>
+                <li><a href="videos.html">Videos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2>¡Explora el mundo de las matemáticas de forma interactiva!</h2>
+                <p>Geometricode te permite visualizar ecuaciones y crear figuras geométricas con código</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary">Comenzar Ahora</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <i class="fas fa-chart-line"></i>
+            </div>
+        </section>
+
+        <!-- Mode Selector -->
+        <div class="mode-selector">
+            <button id="modo-aprendizaje" class="mode-btn active">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Modo de Aprendizaje</span>
+            </button>
+            <button id="modo-creacion" class="mode-btn">
+                <i class="fas fa-code"></i>
+                <span>Modo Creación</span>
+            </button>
+        </div>
+
+        <!-- Main Container -->
+        <div class="main-container">
+            <!-- Tools Panel -->
+            <div class="tools-panel">
+                <div class="panel-header">
+                    <h3><i class="fas fa-tools"></i> Herramientas</h3>
+                </div>
+                
+                <div class="tool-section">
+                    <h4><i class="fas fa-file-alt"></i> Plantillas</h4>
+                    <ul>
+                        <li><a href="#" class="template-link" data-template="line"><i class="fas fa-minus"></i> Líneas Rectas</a></li>
+                        <li><a href="#" class="template-link" data-template="parabola"><i class="fas fa-project-diagram"></i> Parábolas</a></li>
+                        <li><a href="#" class="template-link" data-template="circle"><i class="fas fa-circle"></i> Círculos</a></li>
+                        <li><a href="#" class="template-link" data-template="trig"><i class="fas fa-wave-square"></i> Funciones Trigonométricas</a></li>
+                    </ul>
+                </div>
+                
+                <div class="tool-section">
+                    <h4><i class="fas fa-sliders-h"></i> Parámetros</h4>
+                    <div class="parameter-control">
+                        <label for="escala">Escala:</label>
+                        <input type="range" id="escala" min="1" max="10" value="5">
+                        <span id="escala-valor">5</span>
+                    </div>
+                    <div class="parameter-control">
+                        <label for="precision">Precisión:</label>
+                        <input type="range" id="precision" min="1" max="10" value="5">
+                        <span id="precision-valor">5</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <!-- Learning Mode Content -->
+                <div id="aprendizaje-content" class="mode-content active">
+                    <div class="panel-edicion">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-edit"></i> Panel de Edición - Ecuaciones</h3>
+                        </div>
+                        <div class="equation-input">
+                            <label for="ecuacion">Ingresa tu ecuación:</label>
+                            <div class="input-group">
+                                <input type="text" id="ecuacion" placeholder="Ej: y = 2x + 3">
+                                <button id="graficar-btn"><i class="fas fa-chart-line"></i> Graficar</button>
+                            </div>
+                        </div>
+                        <div class="equation-examples">
+                            <h4><i class="fas fa-list"></i> Ejemplos de ecuaciones:</h4>
+                            <div class="examples-grid">
+                                <div class="example-card" data-equation="y = 2x + 3">y = 2x + 3</div>
+                                <div class="example-card" data-equation="y = x^2 - 4">y = x² - 4</div>
+                                <div class="example-card" data-equation="y = sin(x)">y = sin(x)</div>
+                                <div class="example-card" data-equation="y = log(x)">y = log(x)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="area-visualizacion">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-eye"></i> Área de Visualización</h3>
+                        </div>
+                        <div class="visualization-container">
+                            <div class="canvas-placeholder">
+                                <i class="fas fa-chart-line"></i>
+                                <p>Plano Cartesiano Interactivo</p>
+                                <p>Las gráficas aparecerán aquí</p>
+                            </div>
+                        </div>
+                        <div class="code-display">
+                            <div class="panel-header">
+                                <h4><i class="fas fa-code"></i> Código generado:</h4>
+                            </div>
+                            <pre><code id="generated-code" class="language-python"># Ingresa una ecuación para ver el código generado</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Creation Mode Content -->
+                <div id="creacion-content" class="mode-content">
+                    <div class="panel-edicion">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-code"></i> Panel de Edición - Código</h3>
+                        </div>
+                        <div class="code-editor">
+                            <div class="editor-header">
+                                <div class="language-selector">
+                                    <label for="lenguaje">Lenguaje:</label>
+                                    <select id="lenguaje">
+                                        <option value="python">Python</option>
+                                        <option value="java">Java</option>
+                                    </select>
+                                </div>
+                                <button id="ejecutar-btn"><i class="fas fa-play"></i> Ejecutar Código</button>
+                            </div>
+                            <textarea id="codigo" placeholder="# Ingresa tu código aquí
+# Ejemplo para crear un círculo
+dibujar_circulo(0, 0, 5)
+
+# Ejemplo para crear una línea
+dibujar_linea(-5, -5, 5, 5)
+
+# Ejemplo para crear un rectángulo
+dibujar_rectangulo(-3, -2, 6, 4)"></textarea>
+                        </div>
+                    </div>
+                    <div class="area-visualizacion">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-eye"></i> Área de Visualización</h3>
+                        </div>
+                        <div class="visualization-container">
+                            <div class="canvas-placeholder">
+                                <i class="fas fa-shapes"></i>
+                                <p>Área de Figuras Geométricas</p>
+                                <p>Tus creaciones aparecerán aquí</p>
+                            </div>
+                        </div>
+                        <div class="console-output">
+                            <div class="panel-header">
+                                <h4><i class="fas fa-terminal"></i> Consola de salida:</h4>
+                            </div>
+                            <div class="console-content">
+                                <p>Esperando ejecución de código...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Geometricode. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

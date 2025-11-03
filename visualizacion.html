@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualización - Geometricode</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <div class="logo-icon">
+                <i class="fas fa-shapes"></i>
+            </div>
+            <div>
+                <h1>Geometricode</h1>
+                <p>Herramienta de Matemáticas</p>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="visualizacion.html" class="active">Visualización</a></li>
+                <li><a href="videos.html">Videos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Visualization Area -->
+        <section class="visualization-section">
+            <div class="visualization-header">
+                <h2>Área de Visualización</h2>
+                <p>Explora las representaciones gráficas de ecuaciones y figuras geométricas</p>
+            </div>
+            
+            <div class="visualization-container-full">
+                <div class="canvas-container">
+                    <canvas id="math-canvas"></canvas>
+                    <div class="canvas-message" id="canvas-message">
+                        <i class="fas fa-pencil-ruler"></i>
+                        <p>Ingresa una ecuación o selecciona una figura predefinida para comenzar</p>
+                    </div>
+                </div>
+                
+                <div class="visualization-controls">
+                    <div class="control-group">
+                        <h3>Ingresa tu ecuación</h3>
+                        <div class="equation-input">
+                            <input type="text" id="equation-input" placeholder="Ej: y = 2x + 3">
+                            <button id="plot-btn">Graficar</button>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <h3>Controles de Visualización</h3>
+                        <div class="control-item">
+                            <label for="zoom">Zoom:</label>
+                            <input type="range" id="zoom" min="1" max="10" value="5">
+                            <span id="zoom-value">5</span>
+                        </div>
+                        <div class="control-item">
+                            <label for="grid">Cuadrícula:</label>
+                            <input type="checkbox" id="grid" checked>
+                        </div>
+                        <div class="control-item">
+                            <label for="axes">Ejes:</label>
+                            <input type="checkbox" id="axes" checked>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <h3>Figuras Predefinidas</h3>
+                        <div class="predefined-shapes">
+                            <button class="shape-btn" data-shape="line">Línea Recta</button>
+                            <button class="shape-btn" data-shape="parabola">Parábola</button>
+                            <button class="shape-btn" data-shape="circle">Círculo</button>
+                            <button class="shape-btn" data-shape="sine">Función Seno</button>
+                            <button class="shape-btn" data-shape="cosine">Función Coseno</button>
+                            <button class="shape-btn" data-shape="tangent">Función Tangente</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Geometricode. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="visualization-script.js"></script>
+</body>
+</html>
